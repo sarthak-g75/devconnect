@@ -1,6 +1,7 @@
 // src/app/blogs/page.tsx
 import Link from 'next/link'
 import React from 'react'
+import { getBlogs } from '@/app/actions/getBlogs'
 
 type Blog = {
   id: string
@@ -9,12 +10,12 @@ type Blog = {
 }
 
 const BlogsPage = async () => {
-  const res = await fetch('http://localhost:3000/api/blogs', {
-    next: { revalidate: 5 }, // disables caching so it's server-side every request (like getServerSideProps)
-  })
-  const response = await res.json()
-  console.log(response)
-  const blogs: Blog[] = response.blogs
+  //   const res = await fetch('http://localhost:3000/api/blogs', {
+  //     next: { revalidate: 5 }, // disables caching so it's server-side every request (like getServerSideProps)
+  //   })
+  //   const response = await res.json()
+  //   console.log(response)
+  const blogs: Blog[] = await getBlogs()
 
   return (
     // <div>hello</div>
@@ -27,7 +28,7 @@ const BlogsPage = async () => {
           <div key={blog.id}>
             <Link
               href={`/blog/${blog.id}`}
-              className='border p-4 rounded mb-4 shadow'
+              className='border p-4 rounded mb-4 '
             >
               <h2 className='text-xl font-semibold'>{blog.title}</h2>
               <p className='mt-2'>{blog.content}</p>

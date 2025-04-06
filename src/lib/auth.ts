@@ -2,6 +2,7 @@ import GithubProvider from 'next-auth/providers/github'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import prisma from '@/lib/prisma'
 import bcrypt from 'bcryptjs'
+import { redirect } from 'next/navigation'
 
 export const authOptions = {
   // Configure one or more authentication providers

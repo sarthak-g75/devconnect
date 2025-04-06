@@ -1,8 +1,11 @@
 'use client'
 
 import { useForm } from 'react-hook-form'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 // import { createUser } from '@/app/actions/CreateUser'
 import { signIn } from 'next-auth/react'
+import { useEffect } from 'react'
 
 type FormValues = {
   // name: string
@@ -11,7 +14,14 @@ type FormValues = {
 }
 
 export default function SignupPage() {
-  // const session = useSession()
+  const router = useRouter()
+  const session = useSession()
+  useEffect(() => {
+    if (session.status === 'authenticated') {
+      router.push('/')
+    }
+  }, [session])
+
   const {
     register,
     handleSubmit,

@@ -35,7 +35,7 @@ export default async function Navbar() {
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            {/* <NavigationMenuItem>
               <Link
                 href='/developers'
                 passHref
@@ -45,7 +45,7 @@ export default async function Navbar() {
                   Developers
                 </NavigationMenuLink>
               </Link>
-            </NavigationMenuItem>
+            </NavigationMenuItem> */}
             <NavigationMenuItem>
               <Link
                 href='/blogs'
@@ -68,7 +68,7 @@ export default async function Navbar() {
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            {/* <NavigationMenuItem>
               <Link
                 href='/jobs'
                 passHref
@@ -78,7 +78,7 @@ export default async function Navbar() {
                   Jobs
                 </NavigationMenuLink>
               </Link>
-            </NavigationMenuItem>
+            </NavigationMenuItem> */}
 
             {/* AuthButtons gets session as prop */}
             <AuthButtons session={session} />
